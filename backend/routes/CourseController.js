@@ -5,10 +5,7 @@ import courseService from '../services/courseService.js'
 
 router.post("/addCourse", async (req,res) => {
     const courseModel = {
-       first_name: req.body.first_name,
-       last_name: req.body.last_name,
-       email: req.body.email,
-       gender: req.body.gender
+       name: req.body.name
     }
 
     const course = await courseService.saveCourse(courseModel);
@@ -32,10 +29,7 @@ router.get("/course/:id", async(req, res) => {
 
  router.put("/updateCourse/:id", async (req,res) => {
     const courseModel = {
-       first_name: req.body.first_name,
-       last_name: req.body.last_name,
-       email: req.body.email,
-       gender: req.body.gender
+      name: req.body.name
     }
 
     const course = await courseService.updateCourse(req.params.id, courseModel);

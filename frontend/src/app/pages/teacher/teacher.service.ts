@@ -69,13 +69,14 @@ export class TeacherService {
     // post
     public async post<T> (options: GetOptions ) : Promise<T> {
         try {
+            console.log(options.data);
             let axiosResponse = await this.axiosClient.request<T>({
                 method: "post",
                 url: options.url,
                 params: options.params,
                 data: options.data
             });
-            return ( axiosResponse.data);
+            return (axiosResponse.data);
         } catch (error) {
             return ( Promise.reject( this.normalizeError (error)));
         }

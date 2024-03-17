@@ -5,10 +5,7 @@ import evaluationService from '../services/evaluationService.js'
 
 router.post("/addEvaluation", async (req,res) => {
     const evaluationModel = {
-       first_name: req.body.first_name,
-       last_name: req.body.last_name,
-       email: req.body.email,
-       gender: req.body.gender
+      concept: req.body.concept
     }
 
     const evaluation = await evaluationService.saveEvaluation(evaluationModel);
@@ -31,11 +28,8 @@ router.get("/evaluation/:id", async(req, res) => {
  });
 
  router.put("/updateEvaluation/:id", async (req,res) => {
-    const evaluationModel = {
-       first_name: req.body.first_name,
-       last_name: req.body.last_name,
-       email: req.body.email,
-       gender: req.body.gender
+   const evaluationModel = {
+      concept: req.body.concept
     }
 
     const evaluation = await evaluationService.updateEvaluation(req.params.id, evaluationModel);

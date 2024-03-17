@@ -12,7 +12,7 @@ const routes: Routes = [
     component: TeacherListComponent
   },
   {
-    path: 'addTeacher',
+    path: 'addProfessor',
     component: TeacherFormComponent
   }];
 

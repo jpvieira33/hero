@@ -5,10 +5,8 @@ import professorService from '../services/professorService.js'
 
 router.post("/addProfessor", async (req,res) => {
     const professorModel = {
-       first_name: req.body.first_name,
-       last_name: req.body.last_name,
-       email: req.body.email,
-       gender: req.body.gender
+       name: req.body.name,
+       course_id: req.body.course_id,
     }
 
     const professor = await professorService.saveProfessor(professorModel);
@@ -31,12 +29,10 @@ router.get("/professor/:id", async(req, res) => {
  });
 
  router.put("/updateProfessor/:id", async (req,res) => {
-    const professorModel = {
-       first_name: req.body.first_name,
-       last_name: req.body.last_name,
-       email: req.body.email,
-       gender: req.body.gender
-    }
+   const professorModel = {
+      name: req.body.name,
+      course_id: req.body.course_id,
+   }
 
     const professor = await professorService.updateProfessor(req.params.id, professorModel);
     return res.status(200).json(professor);

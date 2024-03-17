@@ -7,8 +7,7 @@ import evaluationController from './EvaluationController.js';
 import professorController from './ProfessorController.js';
 
 router.get("/", (req, res) =>{
- console.log("Oi")
- res.status(200).json({message: "oi"})
+ res.status(200).json();
 });
 
 router.use("/", userController);

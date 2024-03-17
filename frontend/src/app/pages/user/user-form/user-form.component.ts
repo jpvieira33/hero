@@ -113,13 +113,9 @@ export class UserFormComponent {
     const target = event.target as HTMLInputElement
     this.fileSelected = (target.files as FileList)[0];
     this.url = this.domSanitizer.bypassSecurityTrustUrl(window.URL.createObjectURL(this.fileSelected)) as string;
-
-    // atenção no método bypassSecurityTrustHtml estamos usando URL
   }
 
   async onSubmit(fileinput: FileList | null): Promise<void> {
-    // atenção o parâmetro precisa ter o null por conta do HTML
-
     let fileInput = fileinput![0] // o fileinput é parâmetro do onSubmit e o fileInput é atributo do componente
     let formData = new FormData();
     formData.append('first_name', this.model.first_name);
